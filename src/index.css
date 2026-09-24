@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Baloo+2:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --speed-slow: 1.54s;
+  --speed-normal: 1s;
+  --speed-fast: 0.74s;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0; padding: 0;
+  font-family: 'Nunito', sans-serif;
+  background: #87ceeb;
+  overflow-x: hidden;
+}
+
+/* ===================== CHARACTER ANIMATIONS ===================== */
+
+/* IDLE - gentle breathing bob */
+@keyframes idle-body {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50%       { transform: translateY(-4px) scale(1.005); }
+}
+@keyframes idle-head {
+  0%, 100% { transform: rotate(0deg); }
+  30%       { transform: rotate(2deg); }
+  70%       { transform: rotate(-1deg); }
+}
+
+/* SIT */
+@keyframes sit-body {
+  0%   { transform: translateY(0) scaleY(1); }
+  50%  { transform: translateY(18px) scaleY(0.85); }
+  100% { transform: translateY(14px) scaleY(0.88); }
+}
+@keyframes sit-legs {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(90deg); }
+}
+
+/* STAND UP */
+@keyframes stand-body {
+  0%   { transform: translateY(14px) scaleY(0.88); }
+  60%  { transform: translateY(-6px) scaleY(1.04); }
+  100% { transform: translateY(0) scaleY(1); }
+}
+
+/* WALK FORWARD */
+@keyframes walk-body {
+  0%, 100% { transform: translateX(0); }
+  25%       { transform: translateX(8px); }
+  75%       { transform: translateX(-8px); }
+}
+@keyframes walk-left-leg {
+  0%, 100% { transform: rotate(0deg); }
+  50%       { transform: rotate(25deg); }
+}
+@keyframes walk-right-leg {
+  0%, 100% { transform: rotate(0deg); }
+  50%       { transform: rotate(-25deg); }
+}
+@keyframes walk-left-arm {
+  0%, 100% { transform: rotate(0deg); }
+  50%       { transform: rotate(-20deg); }
+}
+@keyframes walk-right-arm {
+  0%, 100% { transform: rotate(0deg); }
+  50%       { transform: rotate(20deg); }
+}
+
+/* JUMP */
+@keyframes jump-body {
+  0%   { transform: translateY(0) scaleY(1) scaleX(1); }
+  20%  { transform: translateY(4px) scaleY(0.9) scaleX(1.08); }
+  50%  { transform: translateY(-48px) scaleY(1.1) scaleX(0.95); }
+  80%  { transform: translateY(-48px) scaleY(1.1) scaleX(0.95); }
+  90%  { transform: translateY(4px) scaleY(0.88) scaleX(1.1); }
+  100% { transform: translateY(0) scaleY(1) scaleX(1); }
+}
+@keyframes jump-legs {
+  0%, 100% { transform: rotate(0deg); }
+  40%, 80%  { transform: rotate(-35deg); }
+}
+
+/* WAVE */
+@keyframes wave-arm {
+  0%   { transform: rotate(0deg) translateY(0); }
+  15%  { transform: rotate(-80deg) translateY(-8px); }
+  35%  { transform: rotate(-60deg) translateY(-6px); }
+  55%  { transform: rotate(-80deg) translateY(-8px); }
+  75%  { transform: rotate(-60deg) translateY(-6px); }
+  100% { transform: rotate(0deg) translateY(0); }
+}
+@keyframes wave-hand {
+  0%, 100% { transform: rotate(0deg); }
+  25%       { transform: rotate(20deg); }
+  75%       { transform: rotate(-20deg); }
+}
+
+/* NOD */
+@keyframes nod-head {
+  0%, 100% { transform: rotate(0deg); }
+  20%       { transform: rotate(15deg); }
+  40%       { transform: rotate(0deg); }
+  60%       { transform: rotate(15deg); }
+  80%       { transform: rotate(0deg); }
+}
+
+/* SHAKE HEAD */
+@keyframes shake-head {
+  0%, 100% { transform: rotate(0deg); }
+  15%       { transform: rotate(-18deg); }
+  30%       { transform: rotate(18deg); }
+  45%       { transform: rotate(-14deg); }
+  60%       { transform: rotate(14deg); }
+  75%       { transform: rotate(-8deg); }
+  90%       { transform: rotate(8deg); }
+}
+
+/* SPIN */
+@keyframes spin-body {
+  0%   { transform: rotate(0deg) scale(1); }
+  50%  { transform: rotate(180deg) scale(1.05); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* RUN */
+@keyframes run-body {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  25%       { transform: translateX(12px) rotate(3deg); }
+  75%       { transform: translateX(-12px) rotate(-3deg); }
+}
+@keyframes run-arm-left {
+  0%, 100% { transform: rotate(-30deg); }
+  50%       { transform: rotate(50deg); }
+}
+@keyframes run-arm-right {
+  0%, 100% { transform: rotate(30deg); }
+  50%       { transform: rotate(-50deg); }
+}
+@keyframes run-leg-left {
+  0%, 100% { transform: rotate(-40deg); }
+  50%       { transform: rotate(40deg); }
+}
+@keyframes run-leg-right {
+  0%, 100% { transform: rotate(40deg); }
+  50%       { transform: rotate(-40deg); }
+}
+
+/* CLAP */
+@keyframes clap-arm-left {
+  0%, 100% { transform: rotate(0deg) translateX(0); }
+  50%       { transform: rotate(-60deg) translateX(14px); }
+}
+@keyframes clap-arm-right {
+  0%, 100% { transform: rotate(0deg) translateX(0); }
+  50%       { transform: rotate(60deg) translateX(-14px); }
+}
+
+/* DANCE */
+@keyframes dance-body {
+  0%   { transform: translateX(0) rotate(0deg) scale(1); }
+  20%  { transform: translateX(-12px) rotate(-8deg) scale(1.02); }
+  40%  { transform: translateX(12px) rotate(8deg) scale(1.02); }
+  60%  { transform: translateX(-8px) rotate(-4deg) scale(1); }
+  80%  { transform: translateX(8px) rotate(4deg) scale(1); }
+  100% { transform: translateX(0) rotate(0deg) scale(1); }
+}
+@keyframes dance-arm-left {
+  0%, 100% { transform: rotate(0deg); }
+  25%       { transform: rotate(-80deg); }
+  75%       { transform: rotate(20deg); }
+}
+@keyframes dance-arm-right {
+  0%, 100% { transform: rotate(0deg); }
+  25%       { transform: rotate(80deg); }
+  75%       { transform: rotate(-20deg); }
+}
+
+/* ===================== SCENE ANIMATIONS ===================== */
+@keyframes cloud-float {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-120px); }
+}
+@keyframes sun-pulse {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50%       { transform: scale(1.08); filter: brightness(1.1); }
+}
+@keyframes flower-sway {
+  0%, 100% { transform: rotate(0deg); }
+  50%       { transform: rotate(8deg); }
+}
+@keyframes bird-fly {
+  0%       { transform: translateX(-200px) translateY(0); }
+  50%      { transform: translateX(0) translateY(-20px); }
+  100%     { transform: translateX(200px) translateY(0); }
+}
+
+/* ===================== UI ANIMATIONS ===================== */
+@keyframes pop-in {
+  0%   { transform: scale(0.8); opacity: 0; }
+  70%  { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+@keyframes pulse-mic {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.7); }
+  70%       { box-shadow: 0 0 0 20px rgba(139, 92, 246, 0); }
+}
+@keyframes success-flash {
+  0%   { background: rgba(16, 185, 129, 0.2); }
+  100% { background: transparent; }
+}
+@keyframes star-collect {
+  0%   { transform: scale(0) rotate(-30deg); opacity: 0; }
+  60%  { transform: scale(1.4) rotate(10deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg) translateY(-30px); opacity: 0; }
+}
+
+/* ===================== UTILITY CLASSES ===================== */
+.glass-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-card-dark {
+  background: rgba(30, 20, 60, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-3d {
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.2), 0 6px 14px rgba(0,0,0,0.15);
+}
+.btn-3d:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 rgba(0,0,0,0.2), 0 10px 20px rgba(0,0,0,0.18);
+  filter: brightness(1.05);
+}
+.btn-3d:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.12);
+  filter: brightness(0.98);
+}
+
+.character-shadow {
+  filter: drop-shadow(0 12px 8px rgba(0,0,0,0.25));
+}
+
+.scene-bg {
+  background: linear-gradient(180deg, #87CEEB 0%, #B0E8FF 35%, #D4F5A0 65%, #8BC34A 100%);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: rgba(124, 58, 237, 0.4); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(124, 58, 237, 0.7); }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

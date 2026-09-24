@@ -1,0 +1,22 @@
+[
+  {
+    "id": "usr_admin_1",
+    "username": "admin",
+    "passwordHash": "$2b$10$5fYstXTleXtTOgDiDvc/zuJN9fSruhhT0WAVhUpnUXRRNU/6YNzq.",
+    "displayName": "Sistem Admini",
+    "role": "admin",
+    "isActive": true,
+    "createdAt": "2026-09-22T11:49:33.358Z",
+    "lastLoginAt": "2026-09-24T11:08:34.649Z"
+  },
+  {
+    "id": "usr_1790237351403_4fuk1",
+    "username": "istifadəçi1",
+    "passwordHash": "$2b$10$Ug50havKNV2mj2EF7CpEZeP9VUf9aHbZYwg/sC.ZuUw6ptGkcsqMO",
+    "displayName": "istifadəçi1",
+    "role": "user",
+    "isActive": true,
+    "createdAt": "2026-09-24T08:09:11.469Z",
+    "lastLoginAt": "2026-09-24T08:10:05.682Z"
+  }
+]
